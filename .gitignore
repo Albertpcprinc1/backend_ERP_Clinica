@@ -1,0 +1,32 @@
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Variables locales
+.env
+.env.*
+application-local.properties
+application-dev.properties
+
+# Temporales
+*.tmp
+*.bak
