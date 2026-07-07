@@ -30,3 +30,5 @@ application-dev.properties
 # Temporales
 *.tmp
 *.bak
+# Permitir plantilla de variables de entorno sin secretos
+!.env.example
