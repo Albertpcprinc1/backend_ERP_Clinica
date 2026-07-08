@@ -2,6 +2,7 @@ package com.sanfernando.erpclinica.modules.inventory.controller;
 
 import com.sanfernando.erpclinica.modules.inventory.dto.DciRequestDto;
 import com.sanfernando.erpclinica.modules.inventory.dto.DciResponseDto;
+import com.sanfernando.erpclinica.modules.inventory.dto.DciStockSummaryDto;
 import com.sanfernando.erpclinica.modules.inventory.service.DciService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,11 @@ public class DciController {
     @GetMapping
     public List<DciResponseDto> findAllActive() {
         return dciService.findAllActive();
+    }
+
+    @GetMapping("/stock-summary")
+    public List<DciStockSummaryDto> findStockSummary() {
+        return dciService.findStockSummary();
     }
 
     @GetMapping("/{id}")
