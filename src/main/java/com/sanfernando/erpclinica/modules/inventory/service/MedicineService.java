@@ -124,6 +124,8 @@ public class MedicineService {
         entity.setConcentracion(normalizeRequired(request.concentracion(), "La concentracion es obligatoria"));
         entity.setFormaFarmaceutica(normalizeRequired(request.formaFarmaceutica(), "La forma farmaceutica es obligatoria"));
         entity.setPresentacionComercial(normalizeRequired(request.presentacionComercial(), "La presentacion comercial es obligatoria"));
+        entity.setUnidadPresentacion(normalizeRequired(request.unidadPresentacion(), "La unidad de presentacion es obligatoria"));
+        entity.setFactorConversionUnidadBase(requiredPositiveMoney(request.factorConversionUnidadBase(), "El factor de conversion debe ser mayor a cero"));
         entity.setRegistroSanitario(registroSanitario);
         entity.setEsGenerico(defaultBoolean(request.esGenerico()));
         entity.setRequiereReceta(defaultBoolean(request.requiereReceta()));
@@ -155,6 +157,8 @@ public class MedicineService {
                 entity.getConcentracion(),
                 entity.getFormaFarmaceutica(),
                 entity.getPresentacionComercial(),
+                entity.getUnidadPresentacion(),
+                entity.getFactorConversionUnidadBase(),
                 entity.getRegistroSanitario(),
                 entity.getEsGenerico(),
                 entity.getRequiereReceta(),
@@ -194,4 +198,11 @@ public class MedicineService {
         }
         return result;
     }
-}
+
+    private BigDecimal requiredPositiveMoney(BigDecimal value, String errorMessage) {
+        if (value == null || value.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessage);
+        }
+
+        return value;
+    }}

@@ -18,6 +18,8 @@ public record MedicineResponseDto(
         String concentracion,
         String formaFarmaceutica,
         String presentacionComercial,
+        String unidadPresentacion,
+        BigDecimal factorConversionUnidadBase,
         String registroSanitario,
         Boolean esGenerico,
         Boolean requiereReceta,

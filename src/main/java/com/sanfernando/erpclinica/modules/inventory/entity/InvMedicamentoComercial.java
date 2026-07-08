@@ -40,6 +40,12 @@ public class InvMedicamentoComercial {
     @Column(name = "presentacion_comercial", nullable = false, length = 220)
     private String presentacionComercial;
 
+    @Column(name = "unidad_presentacion", nullable = false, length = 80)
+    private String unidadPresentacion = "Unidad";
+
+    @Column(name = "factor_conversion_unidad_base", nullable = false, precision = 14, scale = 2)
+    private BigDecimal factorConversionUnidadBase = BigDecimal.ONE;
+
     @Column(name = "registro_sanitario", nullable = false, length = 80)
     private String registroSanitario;
 
@@ -240,4 +246,19 @@ public class InvMedicamentoComercial {
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
-}
+
+    public String getUnidadPresentacion() {
+        return unidadPresentacion;
+    }
+
+    public void setUnidadPresentacion(String unidadPresentacion) {
+        this.unidadPresentacion = unidadPresentacion;
+    }
+
+    public BigDecimal getFactorConversionUnidadBase() {
+        return factorConversionUnidadBase;
+    }
+
+    public void setFactorConversionUnidadBase(BigDecimal factorConversionUnidadBase) {
+        this.factorConversionUnidadBase = factorConversionUnidadBase;
+    }}

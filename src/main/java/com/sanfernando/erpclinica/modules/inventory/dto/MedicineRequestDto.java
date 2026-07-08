@@ -34,6 +34,14 @@ public record MedicineRequestDto(
         @Size(max = 220, message = "La presentacion comercial no debe superar 220 caracteres")
         String presentacionComercial,
 
+        @NotBlank(message = "La unidad de presentacion es obligatoria")
+        @Size(max = 80, message = "La unidad de presentacion no debe superar 80 caracteres")
+        String unidadPresentacion,
+
+        @NotNull(message = "El factor de conversion a unidad base es obligatorio")
+        @DecimalMin(value = "0.01", message = "El factor de conversion debe ser mayor a cero")
+        BigDecimal factorConversionUnidadBase,
+
         @NotBlank(message = "El Registro Sanitario es obligatorio")
         @Size(max = 80, message = "El Registro Sanitario no debe superar 80 caracteres")
         String registroSanitario,
