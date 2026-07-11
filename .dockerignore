@@ -1,0 +1,12 @@
+.git
+.gitignore
+target
+*.log
+logs
+.idea
+.vscode
+*.iml
+.DS_Store
+.env
+.env.*
+deploy/ec2-vps/.env

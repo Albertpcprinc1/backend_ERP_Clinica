@@ -32,3 +32,4 @@ application-dev.properties
 *.bak
 # Permitir plantilla de variables de entorno sin secretos
 !.env.example
+deploy/ec2-vps/.env
