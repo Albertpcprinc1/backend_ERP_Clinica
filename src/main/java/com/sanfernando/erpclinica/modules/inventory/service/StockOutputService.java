@@ -153,6 +153,7 @@ public class StockOutputService {
         if (
                 result.equals("VENTA_FARMACIA") ||
                 result.equals("ENTREGA_INTERNA") ||
+                result.equals("ENTREGA_POR_RECETA") ||
                 result.equals("USO_INSUMO_MEDICO") ||
                 result.equals("MERMA") ||
                 result.equals("VENCIMIENTO") ||
