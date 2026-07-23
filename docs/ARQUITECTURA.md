@@ -5,7 +5,7 @@
 > Documento vivo de arquitectura del software.  
 > Debe actualizarse al cerrar cada bloque o conjunto funcional probado, versionado, desplegado y validado en AWS.
 
-**Versión documental:** 1.0  
+**Versión documental:** 1.1
 **Última actualización:** 2026-07-23  
 **Responsable del proyecto:** Ing. Albert Huerta  
 **Estado:** Arquitectura base productiva activa; evolución hacia el MVP 2 clínico.
@@ -1227,3 +1227,66 @@ Ambos documentos deben actualizarse conjuntamente cuando un avance cambie:
 - Incorporación de Redis futuro.
 - Registro de decisiones arquitectónicas.
 - Incorporación de reglas de despliegue y documentación viva.
+
+---
+
+# 27. Registro de cierre del hito documental y operativo
+
+## Bloque 49.5 - Documentación viva y backup productivo
+
+**Estado:** completado y validado en producción.
+
+## Cambios arquitectónicos y operativos registrados
+
+- Se establecieron dos documentos vivos del proyecto:
+  - `HOJA DE RUTA PRINCIPAL.md`
+  - `ARQUITECTURA.md`
+- La documentación forma parte del repositorio principal del backend.
+- La EC2 obtiene los documentos mediante `git pull`.
+- El script de backup quedó versionado como ejecutable.
+- Git conserva el modo `100755`.
+- El servidor utiliza permiso `755`.
+- El script opera sobre el Docker Compose productivo.
+- PostgreSQL permanece como fuente definitiva.
+- No se modificó el modelo de datos.
+- No se modificaron las migraciones V1 a V4.
+- No se alteró el volumen productivo.
+- No se alteraron los endpoints de inventario.
+- No se afectó el Angular desplegado.
+- El repositorio productivo quedó limpio.
+
+## Componentes validados
+
+```text
+GitHub
+AWS EC2
+Docker Compose
+Spring Boot
+PostgreSQL
+Script Bash
+pg_dump
+gzip
+Repositorio productivo
+```
+
+## Próxima evolución arquitectónica
+
+El Bloque 50 incorporará la seguridad de aplicación:
+
+```text
+Angular
+   ↓
+Login
+   ↓
+Spring Security
+   ↓
+JWT
+   ↓
+RBAC
+   ↓
+Endpoints protegidos
+   ↓
+PostgreSQL
+```
+
+La seguridad será implementada antes de exponer pacientes, historias clínicas, citas o datos médicos.

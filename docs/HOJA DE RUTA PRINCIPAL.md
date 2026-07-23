@@ -4,7 +4,7 @@
 
 > Documento maestro del proyecto. Funciona como memoria escrita, hoja de ruta vigente y base para la documentación técnica final.
 
-**Versión documental:** 1.0  
+**Versión documental:** 1.1
 **Última actualización:** 2026-07-23  
 **Responsable del proyecto:** Ing. Albert Huerta  
 **Estado general:** Desarrollo incremental con infraestructura productiva activa en AWS.
@@ -636,3 +636,69 @@ Antes de modificar código:
 - Reorganización de los bloques 50 al 66.
 - Pagos postergados.
 - Incorporación de la regla documental obligatoria.
+
+---
+
+# 22. Cierre del hito documental previo al Bloque 50 funcional
+
+## Bloque 49.5 - Documentación viva y continuidad operativa
+
+**Estado:** completado, versionado, desplegado y validado en AWS.
+
+## Resultados alcanzados
+
+- Se creó `docs/HOJA DE RUTA PRINCIPAL.md`.
+- Se creó `docs/ARQUITECTURA.md`.
+- Ambos documentos fueron versionados en GitHub.
+- Ambos documentos fueron descargados y validados en la EC2 productiva.
+- Se confirmó la codificación UTF-8 y el formato Linux.
+- Se robusteció el script de backup PostgreSQL.
+- El script puede ejecutarse desde cualquier directorio.
+- El script carga automáticamente el archivo `.env`.
+- El script valida los contenedores.
+- El script genera, comprime y valida el backup.
+- La retención local inicial quedó configurada en 14 días.
+- El permiso ejecutable quedó registrado en Git.
+- El permiso productivo quedó normalizado a `755`.
+
+## Commits relevantes
+
+```text
+31c6e62 fix: robustecer script de backup postgres en EC2
+5406025 docs: crear hoja de ruta principal y arquitectura viva
+019f475 chore: marcar script de backup postgres como ejecutable
+```
+
+## Evidencia productiva
+
+```text
+SINTAXIS_SCRIPT_OK
+SCRIPT_EJECUTABLE_OK
+BACKUP_OK
+PostgreSQL: healthy
+Backend: Up
+Repositorio AWS: limpio
+```
+
+## Último backup validado
+
+```text
+/opt/sanfernando/backups/postgres/erp_clinica_principal_20260723_035521.sql.gz
+```
+
+## Próximo bloque oficial
+
+```text
+BLOQUE 50 - Seguridad mínima productiva
+```
+
+Alcance inicial:
+
+- Modelo de usuarios.
+- Roles mínimos.
+- Contraseñas con BCrypt.
+- Login real.
+- JWT.
+- Protección de endpoints.
+- Sesión Angular.
+- Despliegue y validación en AWS.
